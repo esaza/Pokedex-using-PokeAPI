@@ -1,0 +1,169 @@
+body, html {
+    background-color: #3797AE;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23286b90'/%3E%3Cstop offset='1' stop-color='%23286b90' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%232dccda'/%3E%3Cstop offset='1' stop-color='%232dccda' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2318adc4'/%3E%3Cstop offset='1' stop-color='%2318adc4' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233797AE'/%3E%3Cstop offset='1' stop-color='%233797AE' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230F006B'/%3E%3Cstop offset='1' stop-color='%230F006B' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%231FF5FF'/%3E%3Cstop offset='1' stop-color='%231FF5FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Oswald", sans-serif;
+    margin: 0;
+    height: 100%;
+}
+
+h1,
+h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+    color: white;
+}
+
+.pokemon-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    /* margin-top: 20px; */
+}
+
+.pokemon-block,
+.pokemon-block-back {
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.img-container {
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+}
+
+.pokemon-block p {
+    margin: 5px;
+}
+
+.name {
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.pagination {
+    margin-top: 2vh;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh;
+}
+
+.card-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .card-container {
+    transform: rotateY(180deg);
+}
+
+.pokemon-block,
+.pokemon-block-back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.pokemon-block-back {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0%;
+}
+
+
+/* Buttons */
+.shinyBtn {
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.shinyBtn:hover {
+    cursor: pointer;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.367);
+    font-size: 20px;
+}
+
+.previous-button {
+    background-color: lightgrey;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 10px;
+    border-top-left-radius: 10px;
+}
+
+.next-button {
+    background-color: lightgrey;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    padding-right: 10px;
+    border-top-right-radius: 10px;
+}
+
+.previous-next-button:hover {
+    background-color: grey;
+}
+
+.start-button {
+    background-color: lightgrey;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.end-button {
+    background-color: lightgrey;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    text-align: center;
+    color: white;
+}
+
+/* Select */
+select {
+    background-color: rgba(0, 0, 0, 0.297);
+    color: white;
+    width: 50vh;
+    text-align: center;
+    padding: 5px;
+    -webkit-appearance: inherit;
+}
+
+option {
+    background-color: transparent;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
