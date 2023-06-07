@@ -104,6 +104,7 @@ h2 {
 }
 
 .previous-button {
+    cursor: pointer;
     background-color: lightgrey;
     color: black;
     text-decoration: none;
@@ -113,6 +114,7 @@ h2 {
 }
 
 .next-button {
+    cursor: pointer;
     background-color: lightgrey;
     color: black;
     text-decoration: none;
@@ -126,6 +128,7 @@ h2 {
 }
 
 .start-button {
+    cursor: pointer;
     background-color: lightgrey;
     color: black;
     text-decoration: none;
@@ -134,6 +137,7 @@ h2 {
 }
 
 .end-button {
+    cursor: pointer;
     background-color: lightgrey;
     color: black;
     text-decoration: none;

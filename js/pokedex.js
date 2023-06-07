@@ -1,6 +1,6 @@
 const pokemonContainer = document.querySelector('.pokemon-container');
 let footer = document.getElementById('footer');
-
+let page = 1;
 
 // Botones
 let previousButton = document.querySelector('.previous-button');
@@ -287,66 +287,66 @@ function changeGeneration(generation) {
     const generationID = generation.value;
     // Todas las generaciones
     if (generationID == 'all') {
-        showButtons();
-        showGenerationPokemons(1, 981, 29);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(1, 991, 29, 19, 34);
         console.log('all');
 
         // Primera generación
     } else if (generationID == '1') {
-        showButtons();
-        showGenerationPokemons(1, 151, 29, 0);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(1, 151, 29, 0, 5);
         console.log('1 Generation');
 
         // Segunda generación
     } else if (generationID == '2') {
-        showButtons();
-        showGenerationPokemons(152, 242, 29, 9);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(152, 242, 29, 9, 4);
         console.log('2 Generation');
 
         // Tercera generación
     } else if (generationID == '3') {
-        showButtons();
-        showGenerationPokemons(252, 372, 29, 14);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(252, 372, 29, 14, 5);
         console.log('3 Generation');
 
         // Cuarta generación
     } else if (generationID == '4') {
-        showButtons();
-        showGenerationPokemons(387, 481, 29, 12);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(387, 477, 29, 16, 4);
         console.log('4 Generation');
 
         // Quinta generación
     } else if (generationID == '5') {
-        showButtons();
-        showGenerationPokemons(494, 644, 29, 5);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(494, 644, 29, 5, 6);
         console.log('5 Generation');
 
         // Sexta generación
     } else if (generationID == '6') {
-        showButtons();
-        showGenerationPokemons(650, 710, 29, 11);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(650, 710, 29, 11, 3);
         console.log('6 Generation');
 
         // Septima generación
     } else if (generationID == '7') {
-        showButtons();
-        showGenerationPokemons(722, 782, 29, 25);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(722, 782, 29, 25, 3);
         console.log('7 Generation');
 
         // Octava generación
     } else if (generationID == '8') {
-        showButtons();
-        showGenerationPokemons(810, 870, 29, 28);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(810, 870, 29, 28, 3);
         console.log('8 Generation');
 
         // Leyendas Arceus 
     } else if (generationID == 'arceus') {
-        showButtons();
-        showGenerationPokemons(899, 899, 6, 6);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(899, 899, 6, 6, 1);
         console.log('Leyends Arceus');
     } else if (generationID == '9') {
-        showButtons();
-        showGenerationPokemons(906, 996, 29, 14);
+        showFooterAndRedirectToPage1();
+        showGenerationPokemons(906, 996, 29, 14, 4);
         console.log('9 Generation');
     }
 }
@@ -355,7 +355,11 @@ function changeGeneration(generation) {
  * Función para mostrar los botones y 
  * ponerlos abajo del todo junto  al footer.
  */
-function showButtons() {
+function showFooterAndRedirectToPage1() {    
+    location.href = '#1';
+    page = 1;
+
+    // Pondremos relative para que muestre el footer debajo de los últimos pokémones
     footer.style.position = 'relative';
     nextButton.style.display = 'inline-block';
     previousButton.style.display = 'inline-block';
@@ -371,7 +375,7 @@ function showButtons() {
  * @param {limit} firstLimit Se usará para que muestre un número de pokémones
  * @param {limit} lastLimit Se usará para que muestre un número de pokémones en la última página
  */
-function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastLimit) {
+function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastLimit, lastPage) {
     pokemonContainer.innerHTML = "";
     limit = firstLimit;
     offset = firstPokemonID;
@@ -380,37 +384,38 @@ function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastL
     // Acciones de los botones
     pokemonsSearcher(offset, limit);
     startButton.onclick = function () {
-        footer.style.position = 'relative';
+        page = 1;
+        startButton.href = '#' + page;
         offset = firstPokemonID;
         pokemonContainer.innerHTML = "";
         pokemonsSearcher(firstPokemonID, 29);
     };
     endButton.onclick = function () {
+        page = lastPage;
+        endButton.href = '#' + page;
         offset = lastPokemonID;
         pokemonContainer.innerHTML = "";
         pokemonsSearcher(lastPokemonID, lastLimit);
-
-        // Le pondremos potion "absolute" para que cuando muestre menos de 30 pokémones 
-        // el footer y los botones vayan abajo del todo
-        footer.style.position = 'absolute';
     };
     previousButton.onclick = function () {
         limit = 29;
         if (offset != firstPokemonID) {
+            page--;
+            previousButton.href = '#' + page;
             offset -= 30;
-            footer.style.position = 'relative';
             pokemonContainer.innerHTML = "";
             pokemonsSearcher(offset, limit);
         }
     };
     nextButton.onclick = function () {
         if (offset != lastPokemonID) {
+            page++;
+            nextButton.href = '#' + page;
             offset += 30;
             console.log(offset);
             if (offset == lastPokemonID) {
                 limit = lastLimit;
 
-                footer.style.position = 'absolute';
             } else {
                 limit = 29;
             }
