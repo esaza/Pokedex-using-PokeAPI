@@ -1,4 +1,6 @@
 const pokemonContainer = document.querySelector('.pokemon-container');
+let footer = document.getElementById('footer');
+
 
 // Botones
 let previousButton = document.querySelector('.previous-button');
@@ -227,7 +229,7 @@ function showPokemon() {
         // Mostramos los tipos de cada pokémon
         const types = document.createElement('div');
         types.classList.add('box-types');
-        types.innerHTML += 'Type/s: ';
+        types.innerHTML += 'Type/s: <br>';
 
         // Con la función map cogeremos todo lo de adentro del array types para guardarlo en otro
         const arrayTypes = poke.types.map((type) => type.type.name);
@@ -242,8 +244,7 @@ function showPokemon() {
         // Mostramos las habilidades de cada pokémon
         const abilities = document.createElement('div');
         abilities.classList.add('box-abilities');
-        abilities.style.fontSize = '10.5px';
-        abilities.innerHTML += 'Abilitie/s: ';
+        abilities.innerHTML += 'Abilitie/s: <br>';
         const arrayAbilities = poke.abilities.map((ability) => ability.ability.name);
         for (let i = 0; i < arrayAbilities.length; i++) {
             abilities.innerHTML += arrayAbilities[i];
@@ -255,8 +256,7 @@ function showPokemon() {
         // Sprite del pokémon
         const sprite = document.createElement('img');
         sprite.src = poke.sprites.front_default;
-        sprite.width = '100';
-        sprite.height = '100';
+        sprite.style.width = '100%';
         spriteContainer.appendChild(sprite);
 
         // Número de la pokedex
@@ -279,6 +279,10 @@ function showPokemon() {
     });
 }
 
+/**
+ * Función que recibirá el ID de una generación y mostrará sus pokémones
+ * @param {generationID} generation Será el número de cada generación
+ */
 function changeGeneration(generation) {
     const generationID = generation.value;
     // Todas las generaciones
@@ -348,10 +352,10 @@ function changeGeneration(generation) {
 }
 
 /**
- * Función para mostrar los botones
+ * Función para mostrar los botones y 
+ * ponerlos abajo del todo junto  al footer.
  */
 function showButtons() {
-    const footer = document.getElementById('footer');
     footer.style.position = 'relative';
     nextButton.style.display = 'inline-block';
     previousButton.style.display = 'inline-block';
@@ -360,13 +364,23 @@ function showButtons() {
 
 }
 
+/**
+ * Función para mostrar solo los pokémones de cada generación
+ * @param {pokemonID} firstPokemonID Aqui se pondrá el id del primer pokémon que quieres buscar
+ * @param {pokemonID} lastPokemonID Aqui se pondrá el id del último pokémon que quieres buscar
+ * @param {limit} firstLimit Se usará para que muestre un número de pokémones
+ * @param {limit} lastLimit Se usará para que muestre un número de pokémones en la última página
+ */
 function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastLimit) {
     pokemonContainer.innerHTML = "";
     limit = firstLimit;
     offset = firstPokemonID;
 
+
+    // Acciones de los botones
     pokemonsSearcher(offset, limit);
     startButton.onclick = function () {
+        footer.style.position = 'relative';
         offset = firstPokemonID;
         pokemonContainer.innerHTML = "";
         pokemonsSearcher(firstPokemonID, 29);
@@ -375,11 +389,16 @@ function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastL
         offset = lastPokemonID;
         pokemonContainer.innerHTML = "";
         pokemonsSearcher(lastPokemonID, lastLimit);
+
+        // Le pondremos potion "absolute" para que cuando muestre menos de 30 pokémones 
+        // el footer y los botones vayan abajo del todo
+        footer.style.position = 'absolute';
     };
     previousButton.onclick = function () {
         limit = 29;
         if (offset != firstPokemonID) {
             offset -= 30;
+            footer.style.position = 'relative';
             pokemonContainer.innerHTML = "";
             pokemonsSearcher(offset, limit);
         }
@@ -390,6 +409,8 @@ function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastL
             console.log(offset);
             if (offset == lastPokemonID) {
                 limit = lastLimit;
+
+                footer.style.position = 'absolute';
             } else {
                 limit = 29;
             }

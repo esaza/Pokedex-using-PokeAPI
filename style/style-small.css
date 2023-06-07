@@ -20,10 +20,10 @@ h2 {
 
 .pokemon-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
     width: 80%;
-    margin-left: 8.88%;
+    margin-left: 3vh;
     margin-right: auto;
     margin-bottom: 40px;
     /* margin-top: 20px; */
@@ -48,7 +48,7 @@ h2 {
 .name {
     text-transform: capitalize;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 15px;
 }
 
 
@@ -167,9 +167,9 @@ option {
 }
 
 .box-abilities {
-    font-size: 10.5px;
+    font-size: 9px;
 }
 
 .box-types {
-    font-size: 15px;
+    font-size: 10.5px;
 }

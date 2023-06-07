@@ -6,7 +6,7 @@ He creado una Pokedex con HTML5, CSS3 y JavaScript (utilizando la [pokeAPI](http
 - Interfaz de usuario intuitiva y fácil de usar.
 - Puedes buscar pokémones de las 9 generaciones que hay hasta ahora.
 - Diseño sencillo.
-- De momento no es responsive.
+- Es "responsive".
 
 # Capturas de Pantalla:
 Al entrar verás esta pantalla que tiene un select para que escojas una generación.

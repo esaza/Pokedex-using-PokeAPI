@@ -9,6 +9,10 @@
     <link rel="shortcut icon" href="img/icono.png" type="image/x-icon">
     <!-- CSS -->
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width:800px) and (max-width:1020px)"
+        href="style/style-med.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width:0px) and (max-width:800px)"
+        href="style/style-small.css">
     <title>Pokédex</title>
 </head>
 
@@ -34,11 +38,12 @@
     </nav>
     <div class="pokemon-container">
     </div>
-    <nav class="pagination">
+    
+    <footer id="footer"><nav class="start-end-buttons">
         <a class="start-button" href="#">Start</a>
         <a class="end-button" href="#">End</a>
-    </nav>
-    <footer id="footer"><b>Copyright © 2023 Eric Salado Zafra</b></footer>
+    </nav><br>
+        <b>Copyright © 2023 Eric Salado Zafra</b></footer>
 </body>
 <!-- JS -->
 <script src="js/pokedex.js"></script>
