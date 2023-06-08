@@ -460,7 +460,7 @@ function searchPokemonInput() {
     for (let i = 0; i < pokemonsSearched.length; i++) {
         if (!pokemonsSearched.includes(pokemonInput)) {
             pokemonsSearched.push(pokemonInput);
-            console.log(pokemonsSearched.length);
+            // console.log(pokemonsSearched.length);
             pokemonSearcherByName(pokemonInput);
 
             // Dependiendo del tamaño de la ventana el footer tiene que estar siempre abajo
@@ -486,6 +486,7 @@ function searchPokemonInput() {
  * Función que al vaciar la pokedex ya podrás volver a buscar pokémones
  */
 function emptyPokedex() {
+    pokemonsSearched = ['none'];
     document.getElementById('pokemonName').disabled = false;
     document.getElementById('searchPokemonInput').disabled = false;
     document.getElementById('emptyPokedex').disabled = true;
