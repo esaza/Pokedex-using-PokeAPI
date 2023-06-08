@@ -492,7 +492,6 @@ function emptyPokedex() {
     pokemonsSearched = ['none'];
     document.getElementById('pokemonName').disabled = false;
     document.getElementById('searchPokemonInput').disabled = false;
-    document.getElementById('emptyPokedex').disabled = true;
     pokemonContainer.innerHTML = "";
     footer.style.position = 'absolute';
 }
