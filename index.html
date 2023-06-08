@@ -18,8 +18,12 @@
 
 <body>
     <h1>Pokedex</h1>
-    <h2 id="choose">Choose a generation:</h2>
+    <h2 id="choose">Search a pokemon:</h2>
+    <input type="text" name="pokemonName" id="pokemonName">
+    <input type="button" class="search-button" id="searchPokemonInput" value="Search" onclick="searchPokemonInput()">
+    <input type="button" class="empty-button" id="emptyPokedex" value="Empty" onclick="emptyPokedex()" disabled><br>
     <nav class="pagination">
+        <h2 id="choose">Choose a generation:</h2>
         <a class="previous-button">L</a>
         <select name="generations" id="generations" class="gen" onchange="changeGeneration(this)">
             <option value="all" selected>All generations</option>
@@ -38,12 +42,14 @@
     </nav>
     <div class="pokemon-container">
     </div>
-    
-    <footer id="footer"><nav class="start-end-buttons">
-        <a class="start-button">Start</a>
-        <a class="end-button">End</a>
-    </nav><br>
-        <b>Copyright © 2023 Eric Salado Zafra</b></footer>
+
+    <footer id="footer">
+        <nav class="start-end-buttons">
+            <a class="start-button">Start</a>
+            <a class="end-button">End</a>
+        </nav><br>
+        <b>Copyright © 2023 Eric Salado Zafra</b>
+    </footer>
 </body>
 <!-- JS -->
 <script src="js/pokedex.js"></script>

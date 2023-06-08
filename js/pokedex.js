@@ -2,6 +2,10 @@ const pokemonContainer = document.querySelector('.pokemon-container');
 let footer = document.getElementById('footer');
 let page = 1;
 
+// Ventanas
+var smallWindow = window.matchMedia("(max-width: 800px)")
+var medWindow = window.matchMedia("(max-width: 1020px)")
+
 // Botones
 let previousButton = document.querySelector('.previous-button');
 let nextButton = document.querySelector('.next-button');
@@ -20,14 +24,15 @@ let maxPokes = 0;
 let limit = 29;
 let offset = 1;
 
-// Array donde se guardarán los pokémones
+// Array donde se guardarán los pokémones y los buscados
 let pokemons = [];
+let pokemonsSearched = ['none'];
 
 /**
  * Función que buscará el pokemon a traves de un ID en la pokeapi
  * @param {number} pokemonID 
  */
-function pokemonSearcher(pokemonID) {
+function pokemonSearcherByID(pokemonID) {
 
     // La función fetch() en JavaScript se utiliza para realizar solicitudes HTTP desde el navegador web al servidor.
     // El método then() és para procesar la respuesta HTTP que se recibe de la URL
@@ -39,15 +44,27 @@ function pokemonSearcher(pokemonID) {
         .then(pokemonJSON => pokemonJSON.json())
         .then((pokemon) => {
 
-            // Agregamos el pokémon a la matriz
+            // Agregamos el pokémon a las matrices
             pokemons.push(pokemon);
 
             // Si el número de pokémones es igual que el de el máximo mostrará el pokémon
             if (pokemons.length == maxPokes) {
                 showPokemon();
-
             }
             // console.log(pokemon);
+        });
+}
+
+/**
+ * Función que buscará el pokemon a traves de un nombre en la pokeapi
+ * @param {number} pokemonID 
+ */
+function pokemonSearcherByName(pokemonName) {
+    fetch('https://pokeapi.co/api/v2/pokemon/' + pokemonName + '/')
+        .then(pokemonJSON => pokemonJSON.json())
+        .then((pokemon) => {
+            pokemons.push(pokemon);
+            showPokemon();
         });
 }
 
@@ -63,7 +80,7 @@ function pokemonsSearcher(offset, limit) {
     maxPokes = 0;
     for (let i = offset; i <= offset + limit; i++) {
         // Le pasamos el buscador que habiamos creado antes
-        pokemonSearcher(i);
+        pokemonSearcherByID(i);
         maxPokes++;
     }
 
@@ -355,7 +372,14 @@ function changeGeneration(generation) {
  * Función para mostrar los botones y 
  * ponerlos abajo del todo junto  al footer.
  */
-function showFooterAndRedirectToPage1() {    
+function showFooterAndRedirectToPage1() {
+
+    // Al entrar a una generación no podrás buscar pokémones sin vaciar la pokedex
+    document.getElementById('emptyPokedex').disabled = false;
+    document.getElementById('pokemonName').disabled = true;
+    document.getElementById('searchPokemonInput').disabled = true;
+
+    // Al entra a una generación distinta volverás a la página 1
     location.href = '#1';
     page = 1;
 
@@ -412,7 +436,7 @@ function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastL
             page++;
             nextButton.href = '#' + page;
             offset += 30;
-            console.log(offset);
+            // console.log(offset);
             if (offset == lastPokemonID) {
                 limit = lastLimit;
 
@@ -423,4 +447,48 @@ function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastL
             pokemonsSearcher(offset, limit);
         }
     };
+}
+
+function searchPokemonInput() {
+
+    nextButton.style.display = 'none';
+    previousButton.style.display = 'none';
+    startButton.style.display = 'none';
+    endButton.style.display = 'none';
+    pokemons = [];
+    const pokemonInput = document.getElementById('pokemonName').value;
+    for (let i = 0; i < pokemonsSearched.length; i++) {
+        if (!pokemonsSearched.includes(pokemonInput)) {
+            pokemonsSearched.push(pokemonInput);
+            console.log(pokemonsSearched.length);
+            pokemonSearcherByName(pokemonInput);
+
+            // Dependiendo del tamaño de la ventana el footer tiene que estar siempre abajo
+            if (smallWindow.matches) {
+                if (pokemonsSearched.length > 5) {
+                    footer.style.position = 'relative';
+                }
+            } else if (medWindow.matches) {
+                if (pokemonsSearched.length > 6) {
+                    footer.style.position = 'relative';
+                }
+            } else {
+                if (pokemonsSearched.length > 7) {
+                    footer.style.position = 'relative';
+                }
+            }
+        }
+    }
+
+}
+
+/**
+ * Función que al vaciar la pokedex ya podrás volver a buscar pokémones
+ */
+function emptyPokedex() {
+    document.getElementById('pokemonName').disabled = false;
+    document.getElementById('searchPokemonInput').disabled = false;
+    document.getElementById('emptyPokedex').disabled = true;
+    pokemonContainer.innerHTML = "";
+    footer.style.position = 'absolute';
 }

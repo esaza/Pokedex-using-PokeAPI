@@ -177,3 +177,55 @@ option {
 .box-types {
     font-size: 15px;
 }
+
+.search-button {
+    background-color: rgba(232, 232, 232, 0.623);
+    color: white;
+    /*width: 20vh;*/
+    text-align: center;
+    padding: 5px;
+}
+
+.search-button:hover {
+    background-color: rgba(163, 163, 163, 0.623);
+    color: white;
+    /*width: 20vh;*/
+    text-align: center;
+    padding: 5px;
+}
+
+.search-button:disabled {
+    background-color: rgba(163, 163, 163, 0.623);
+    color: white;
+    /*width: 20vh;*/
+    text-align: center;
+    padding: 5px;
+}
+
+.empty-button {
+    background-color: rgba(232, 232, 232, 0.623);
+    color: white;
+    /*width: 20vh;*/
+    text-align: center;
+    padding: 5px;
+}
+
+.empty-button:hover {
+    background-color: rgba(163, 163, 163, 0.623);
+    color: white;
+    /*width: 20vh;*/
+    text-align: center;
+    padding: 5px;
+}
+
+.empty-button:disabled {
+    background-color: rgba(163, 163, 163, 0.623);
+    color: white;
+    /*width: 20vh;*/
+    text-align: center;
+    padding: 5px;
+}
+
+input[type="text"] {
+    padding: 5px;
+}
