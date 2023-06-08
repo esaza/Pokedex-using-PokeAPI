@@ -449,6 +449,9 @@ function showGenerationPokemons(firstPokemonID, lastPokemonID, firstLimit, lastL
     };
 }
 
+/**
+ * Función para buscar el pokémon que reciba el input
+ */
 function searchPokemonInput() {
 
     nextButton.style.display = 'none';
@@ -456,7 +459,7 @@ function searchPokemonInput() {
     startButton.style.display = 'none';
     endButton.style.display = 'none';
     pokemons = [];
-    const pokemonInput = document.getElementById('pokemonName').value;
+    const pokemonInput = document.getElementById('pokemonName').value.toLowerCase();
     for (let i = 0; i < pokemonsSearched.length; i++) {
         if (!pokemonsSearched.includes(pokemonInput)) {
             pokemonsSearched.push(pokemonInput);
