@@ -468,7 +468,7 @@ function searchPokemonInput() {
 
             // Dependiendo del tamaño de la ventana el footer tiene que estar siempre abajo
             if (smallWindow.matches) {
-                if (pokemonsSearched.length > 5) {
+                if (pokemonsSearched.length > 4) {
                     footer.style.position = 'relative';
                 }
             } else if (medWindow.matches) {
