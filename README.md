@@ -7,6 +7,7 @@ I have created a Pokedex with HTML5, CSS3 and JavaScript (using the [pokeAPI](ht
 - You can search for pokemon from the 9 generations that there are so far.
 - Simple design.
 - Is responsive.
+- You can search your favourite pokémon.
 
 # Screenshots:
 Upon entering you will see this screen that has a select for you to choose a generation.
