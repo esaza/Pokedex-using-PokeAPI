@@ -472,7 +472,7 @@ function searchPokemonInput() {
                     footer.style.position = 'relative';
                 }
             } else if (medWindow.matches) {
-                if (pokemonsSearched.length > 6) {
+                if (pokemonsSearched.length > 5) {
                     footer.style.position = 'relative';
                 }
             } else {
