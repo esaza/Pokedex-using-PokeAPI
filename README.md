@@ -10,15 +10,17 @@ I have created a Pokedex with HTML5, CSS3 and JavaScript (using the [pokeAPI](ht
 
 # Screenshots:
 Upon entering you will see this screen that has a select for you to choose a generation.
-![image](https://github.com/ericsaza/JS_Pokedex-PokeAPI/assets/94136968/e2f4d099-8c96-42cb-a286-7dc2785c36ab)
+![image](https://github.com/ericsaza/JS_Pokedex-PokeAPI/assets/94136968/ab5294b4-8477-44aa-beb1-b036a25cf14f)
 Here, for example, I am looking for the 3rd generation pokemon (Some in shiny).
-![image](https://github.com/ericsaza/JS_Pokedex-PokeAPI/assets/94136968/2a46fc7b-8c95-46db-b423-3ba436ad3fee)
+![image](https://github.com/ericsaza/JS_Pokedex-PokeAPI/assets/94136968/3a98bd36-ca59-45aa-a6bf-ca8713220ed2)
+You can also go looking for pokémones in the pokedex and see them.
+![image](https://github.com/ericsaza/JS_Pokedex-PokeAPI/assets/94136968/a89a8eb3-8ef1-4951-8591-109d1974e417)
 
 
 # Use:
 1. Download all the files from the repository.
 2. Open the `index.html` file in your web browser.
-3. You choose a generation (or all).
+3. You can choose a generation (or all) or search a pokemon.
 4. You see turning pages and you will be able to see each pokemon and its information.
 - If you want to customize the design or functionality of the pokedex, you can edit the HTML, CSS and JavaScript files according to your needs.
 - You can also go to my page link from [here](https://ericsaza.github.io/JS_Pokedex-PokeAPI/).
