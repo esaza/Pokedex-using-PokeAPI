@@ -1,5 +1,5 @@
 English / [Spanish](https://github.com/ericsaza/JS_Pokedex-PokeAPI/blob/main/README_es.md)
-# JS_Pokedex-PokeAPI
+# Pokedex-using-PokeAPI
 I have created a Pokedex with HTML5, CSS3 and JavaScript (using the [pokeAPI](https://pokeapi.co)).
 
 # Attributes:
