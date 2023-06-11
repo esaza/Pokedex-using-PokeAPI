@@ -25,7 +25,7 @@ Tambien puedes ir buscando pokémones en la pokedex y ir viendolos.
 3. Escoges una generación (o todas) o buscas un pokémon.
 4. Ves pasando paginas y podrás ir viendo cada pokemón y su información.
 - Si deseas personalizar el diseño o la funcionalidad de la pokedex, puedes editar los archivos HTML, CSS y JavaScript según tus necesidades.
-- Tambien puedes ir al enlace de mi página desde [aquí](https://ericsaza.github.io/JS_Pokedex-PokeAPI/).
+- Tambien puedes ir al enlace de mi página desde [aquí](https://ericsaza.github.io/Pokedex-with-PokeAPI/).
 
 # Aquí está la estructura básica de los archivos:
 `index.html`: Contiene la estructura HTML de la pokedex.
@@ -37,5 +37,5 @@ Tambien puedes ir buscando pokémones en la pokedex y ir viendolos.
 Las contribuciones son bienvenidas. Si tienes alguna idea para mejorar la calculadora o encuentras algún error, siéntete libre de abrir un problema o enviar una solicitud de extracción en el repositorio.
 
 # Créditos:
-Este proyecto fue creado por [Eric_sa_za](https://github.com/ericsaza/) y puedes encontrar el repositorio original [aquí](https://github.com/ericsaza/JS_Pokedex-PokeAPI/).
+Este proyecto fue creado por [Eric_sa_za](https://github.com/ericsaza/) y puedes encontrar el repositorio original [aquí](https://github.com/ericsaza/Pokedex-with-PokeAPI/).
 Si utilizas este código, por favor, menciona y enlaza el repositorio.
