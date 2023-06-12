@@ -61,7 +61,14 @@ function pokemonSearcherByID(pokemonID) {
  */
 function pokemonSearcherByName(pokemonName) {
     fetch('https://pokeapi.co/api/v2/pokemon/' + pokemonName + '/')
-        .then(pokemonJSON => pokemonJSON.json())
+        .then((pokemonJSON) => {
+            if (pokemonJSON.ok) {
+                return pokemonJSON.json();
+            } else {
+                pokemons.pop();
+                pokemonsSearched.pop();
+            }
+        })
         .then((pokemon) => {
             pokemons.push(pokemon);
             showPokemon();
