@@ -63,8 +63,10 @@ function pokemonSearcherByName(pokemonName) {
     fetch('https://pokeapi.co/api/v2/pokemon/' + pokemonName + '/')
         .then((pokemonJSON) => {
             if(pokemonJSON.ok) {
+                pokemonContainer.style.color = "back";
                 return pokemonJSON.json();  
             } else {
+                pokemonsSearched = ['none'];
                 footer.style.position = 'absolute';
                 pokemonContainer.innerHTML = 'Pokemon Not Found: 404';
                 pokemonContainer.style.color = "red";
